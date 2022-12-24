@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	
+	<style>
+	body {
+	background-image: url("https://thumbs.dreamstime.com/z/happy-piggy-bank-money-white-table-against-color-background-space-text-finance-saving-149265238.jpg");
+	}
+	.row h1{
+	color:blue;
+	text-align:center;
+	}
+	.btn-outline-success {
+    color: #5d79df;
+    border-color: #386da5;
+    margin-left: 400px;
+}
+	.box-footer{align-content:center; }
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>Update New Employee Details</h1>
+		</div>
+<div class="card-body">
+			<form th:action = "@{/updateAndSave/{id} (id = ${updateEmployee.BankEmployeetId})}" th:object="${updateEmployee}" method = "post">
+				<div class="form-group">
+				<label> <b>Enter Bank EmployeeId:</b> </label> 
+					<input type="text" name="EmployeeId"
+						th:field="*{BankEmployeetId}" class="form-control" required
+						placeholder="Enter your EmployeeId"></input>
+						<br/>
+						<label> <b>Enter Bank EmployeeName:</b> </label> 
+							<input type="text" name="EmployeeName" 
+							th:field="*{BankEmployeeName}"
+						class="form-control"  required placeholder="Enter your EmployeeName"></input> 
+						<br/>
+						<label><b>Enter BankEmployeeSalary:</b> </label> 
+						<input type="text" name="BankEmployeeSalary"
+						th:field="*{BankEmployeeSalary}" class="form-control" required
+						placeholder=" Enter Your EmployeeSalary"></input>
+						<br/>
+						<label><b>Enter BankEmployeeSection: </b></label> 
+						<input type="text" name="BankEmployeeSections"
+						th:field="*{BankEmployeeSections}" class="form-control" required
+						placeholder=" Enter Your EmployeeSections"></input>
+				</div>
+				<br/>
+				<br/>
+				
+				<div class = "box-footer margin:auto">
+				<button type = "submit" class="btn btn-outline-success ">
+				save
+				</button>
+				
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

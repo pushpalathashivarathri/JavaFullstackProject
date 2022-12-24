@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add New Employee Details</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	<style>
+	body{
+	background:url("https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+	}
+	h1{
+	text-align:center!important;
+	color:black;
+	margin-left:20px;
+	}
+	.btn-primary {
+    color: black;
+    background-color: #43cbc8;
+    border-color: #212529;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #c54199;
+    border-color: #212529;
+}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">BANK EMPLOYEE</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">BANK EMPLOYEE MANGEMENT</a>
+      </li>
+      <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Log
+								Out</a></li>
+      
+ 
+    </ul>
+  </div>
+</nav>
+
+
+	<div class="container">
+		<div class="row">
+			<h1>ADD NEW EMPLOYEE DETAILS</h1>
+		</div>
+		<div class="card-body">
+			<form th:action = @{/insertEmployee} th:object="${Obj}" method = "post">
+				<div class="form-group">
+					<label><b> Enter Bank EmployeeId:</b> </label> 
+					<input type="text" name="EmployeeId"
+						th:field="*{BankEmployeetId}" class="form-control" required
+						placeholder="Enter your EmployeeId"></input>
+					<br/>
+						<label> <b>Enter Bank EmployeeName: </b></label> 
+							<input type="text" name="EmployeeName" 
+							th:field="*{BankEmployeeName}"
+						class="form-control"  required placeholder="Enter your EmployeeName"></input> 
+						<br/>
+						<label><b>Enter BankEmployeeSalary: </b></label> 
+						<input type="text" name="BankEmployeeSalary"
+						th:field="*{BankEmployeeSalary}" class="form-control" required
+						placeholder=" Enter Your EmployeeSalary"></input>
+						<br/>
+						<label><b>Enter BankEmployeeSection:</b> </label> 
+						<input type="text" name="BankEmployeeSections"
+						th:field="*{BankEmployeeSections}" class="form-control" required
+						placeholder=" Enter Your EmployeeSections"></input>
+						<br/>
+				</div>
+				
+			<div class = "box-footer text-center">
+				<button type = "submit" class = "btn btn-primary">
+				Submit
+				</button>
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

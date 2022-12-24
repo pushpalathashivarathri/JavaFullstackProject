@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>Insert Bank Employee</title>
+<style>
+body {
+  background: url('https://www.shutterstock.com/shutterstock/photos/1633978648/display_1500/stock-photo-businessman-is-touching-hologram-open-banking-financial-technology-1633978648.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.btn{
+  margin:15px;
+}
+</style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#" >BANK EMPLOYEE</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-item"><a class="nav-link" th:href="@{Employee/createNewEmployee}">BankEmployee Management</a></li>
+     
+       
+	<li class="nav-item"><a class="nav-link" th:href="@{/profilecard}">profilecard</a></li>
+	<li class="nav-item"><a class="nav-link" th:href="@{/login}">LoginPage</a></li>
+	<li class="nav-item"><a class="nav-link" th:href="@{/logout}">LogOut</a></li>
+	<li class="nav-item"><a class="nav-link" th:href="@{/aboutus}">Aboutus</a></li>
+ 
+    </ul>
+  </div>
+</nav>
+		</div>
+		<table class="table table-striped table-p-3 mb-2 bg-white text-dark">
+		
+			<thead class="table-primary">
+			
+				<tr>
+					<th>BankEmployeetId</th>
+					<th>BankEmployeeName</th>
+					<th>BankEmployeeSalary</th>
+					<th>BankEmployeeSections</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:each="Employee: ${EmployeeList} ">
+					<td th:text="${Employee.BankEmployeetId}"></td>
+					<td th:text="${Employee.BankEmployeeName}"></td>
+					<td th:text="${Employee.BankEmployeeSalary}"></td>
+					<td th:text="${Employee.BankEmployeeSections}"></td>
+					<td>
+					<a th:href = "@{/delete/{id}(id = ${Employee.BankEmployeetId})}"
+						 class="btn btn-outline-danger"> Delete</a>
+						 
+					 <a th:href = "@{/update/{id}(id = ${Employee.BankEmployeetId})}"
+						  class="btn btn-outline-warning"> update</a>
+					</td>
+				</tr>
+
+				
+			</tbody>
+
+		</table>
+		<div> 
+			</div>
+			<div class = "box-footer">
+				
+</body>
+</html>
